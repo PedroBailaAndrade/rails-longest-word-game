@@ -10,7 +10,7 @@ class GamesController < ApplicationController
     @user_letter = params[:word].upcase
     @letters = params[:letters]
     @grid = in_grid?(@letters, @user_letter)
-    @dictionary = in_dictionary?
+    @dictionary = in_dictionary?(word)
   end
 
   private
@@ -24,10 +24,10 @@ class GamesController < ApplicationController
     word.chars.all? { |letter| word.count(letter) <= grid_letters.count(letter) }
   end
 
-  def in_dictionary?
-    url = "https://wagon-dictionary.herokuapp.com/#{@user_letter}"
+  def in_dictionary?(word)
+    url = "https://wagon-dictionary.herokuapp.com/#{word}"
     word_serialized = open(url).read
     word = JSON.parse(word_serialized)
-    @found = word['found']
+    word['found']
   end
 end
