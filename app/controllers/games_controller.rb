@@ -10,7 +10,7 @@ class GamesController < ApplicationController
     @user_letter = params[:word].upcase
     @letters = params[:letters]
     @grid = in_grid?(@letters, @user_letter)
-    @dictionary = in_dictionary?(word)
+    @dictionary = in_dictionary?(@user_letter)
   end
 
   private

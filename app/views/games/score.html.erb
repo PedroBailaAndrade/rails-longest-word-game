@@ -2,7 +2,7 @@
 <p><%= "Sorry #{@user_letter} can't be build out of #{@letters}." %></p>
 <% elsif @dictionary == false %>
 <p><%= "Sorry but #{@user_letter} does not seem to be a english word." %></p>
-<% elsif @grid == true && @dictionary == true %>
+<% else @grid == true && @dictionary == true %>
 <p><%= "Congratulations! #{@user_letter} is a valid english word." %></p>
 <% end %>
 
