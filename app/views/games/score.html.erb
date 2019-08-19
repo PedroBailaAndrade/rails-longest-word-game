@@ -1,2 +1,9 @@
-<h1>Questions#score</h1>
-<p>Find me in app/views/questions/score.html.erb</p>
+<% if @grid == false %>
+<p><%= "Sorry #{@user_letter} can't be build out of #{@letters}." %></p>
+<% elsif @found == false %>
+<p><%= "Sorry but #{@user_letter} does not seem to be a english word." %></p>
+<% elsif @grid == true && @found == true %>
+<p><%= "Congratulations! #{@user_letter} is a valid english word." %></p>
+<% end %>
+
+<%= link_to "Play again", 'new' %>

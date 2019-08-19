@@ -1,2 +1,14 @@
-<h1>Questions#new</h1>
-<p>Find me in app/views/questions/new.html.erb</p>
+<h1>Games#new</h1>
+<ul>
+<% @letters.each do |letter| %>
+    <li style="display:inline"><%= letter %></li>
+<% end %>
+</ul>
+<form action="score" method="POST">
+  <p>What is the longest word you can find?</p>
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :letters, @letters %>
+  <input type="text" name="word">
+  <input type="submit">
+</form>
+<p>Find me in app/views/games/new.html.erb</p>
